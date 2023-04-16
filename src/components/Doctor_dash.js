@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import avatar from '../assets/avatar.png'
 import opd from '../assets/opd.png'
 import icu from '../assets/icu.png'
@@ -67,7 +67,7 @@ export default function Doctor_dash() {
       }
     }
   }
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(sessionStorage.getItem('userRole') !== 'Doctor'){
       navigate('/cs_dashboard')
       toast.error("Access denied", {
@@ -81,8 +81,12 @@ export default function Doctor_dash() {
       }
       )
     }
-    handleDocMap()
+
   }, []) 
+
+  useEffect(()=>{
+    handleDocMap()
+  },[])
 
 
   const signOut = ()=>{
