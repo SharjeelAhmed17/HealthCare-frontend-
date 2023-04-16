@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import avatar from '../assets/avatar.png'
 import opd from '../assets/opd.png'
 import icu from '../assets/icu.png'
@@ -25,7 +25,7 @@ export default function CostumerService() {
   const ICUcounts = useSelector(Hop_ICUSelect) 
   const Dischargedcounts = useSelector(Hop_DischargedSelect) 
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if(sessionStorage.getItem('userRole') !== 'costumerService'){
       navigate('/doc_dashboard')
       toast.error("Access denied", {
@@ -39,8 +39,10 @@ export default function CostumerService() {
       }
       )
     }
-    handleCSMap();
   }, []);
+  useEffect(()=>{
+    handleCSMap();
+  },[])
 
   const handleCSMap = async () => {
     try {
