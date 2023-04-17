@@ -86,7 +86,7 @@ useEffect(()=>{
 
   const closeTask = ()=>{
     navigate('/cs_dashboard')
-    toast.success('Task area closed', {
+    toast.success('Add patient area closed', {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: true,
